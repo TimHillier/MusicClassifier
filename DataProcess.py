@@ -3,9 +3,19 @@ import progress,os,wave,sys,pylab
 import numpy as np
 from matplotlib import mlab,pyplot
 
+#get songs from destination
+def FindSongs(DataFolder):
+    #this is where you put loading bar
+    os.chdir(DataFolder)
+    print("Current Directory", os.getcwd())
+    print(os.listdir(DataFolder))
+
+
+
+
+
 #generate Spectrogram for the current song
 def generate_spectrogram(song):
-    print("type",type(song))
     sound_info,frame_rate = get_wave_info(song)
     pylab.figure(num=None, figsize=(19,12))
     pylab.subplot(111)
