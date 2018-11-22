@@ -1,7 +1,7 @@
 import Classifier,Mine,DataProcess,sys
 #ok whats the first thing we need?
 def main():
-    print("Hello")
-    print(DataProcess.FindSongs(sys.argv[1]))
+    DataProcess.find_songs(sys.argv[1])
+    print("DONE")
 
 main()

@@ -1,27 +1,38 @@
 #process the data for classification
-import progress,os,wave,sys,pylab
+import os,wave,sys,pylab
 import numpy as np
+from progress.bar import Bar
 from matplotlib import mlab,pyplot
 
 #get songs from destination
-def FindSongs(DataFolder):
+def find_songs(DataFolder):
+    check_output("./Spect")
+    files = os.listdir(DataFolder)
+    bar = Bar('Generating Spectrograms',max = len(files))
+    for i in range(len(files)):
+        generate_spectrogram(DataFolder+"/"+files[i],"./Spect")
+        bar.next()
+    bar.finish
     #this is where you put loading bar
-    os.chdir(DataFolder)
-    print("Current Directory", os.getcwd())
-    print(os.listdir(DataFolder))
 
+
+def check_output(outputdirectory):
+    try:
+        os.mkdir(outputdirectory)
+    except:
+        pass
 
 
 
 
 #generate Spectrogram for the current song
-def generate_spectrogram(song):
+def generate_spectrogram(song,outputdirectory):
     sound_info,frame_rate = get_wave_info(song)
     pylab.figure(num=None, figsize=(19,12))
     pylab.subplot(111)
     pylab.title('spectrogram of %r'% song)
     pylab.specgram(sound_info,Fs=frame_rate)
-    pylab.savefig(((song.split("/")[-1]).split(".")[0])+".png")
+    pylab.savefig(outputdirectory+"/"+((song.split("/")[-1]).split(".")[0])+".png")
 
 #gets info about the song
 def get_wave_info(song):
