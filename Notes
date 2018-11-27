@@ -1,0 +1,16 @@
+#On the case of why im using Stero
+
+Mono doesnt seem to give good spectrograms, so i think ill use Stero. Im not sure if this is the most correct thing to do
+have done a little research but none of the papers That I have read refer to the use of Stero vs Mono, so ill stick
+with Stereo For now. if this changes ill update the notes.
+
+
+#On the case of how ill generate all the information Ill need
+
+I got a good tip from Wium, about doing the computation on the computers in the lab. THis would work and I could split it
+up, but to do that I need to be able to install python packages on the school computers, which I dont think I can do.So
+I need to go talk to conan, this would be quicker than just doing it over the few days on my computer. Now I just need to
+write a script to extract all the needed information. Which I think I do. I have it set up to generate spectrograms and
+Text files filled with some information. Idk what that information is but it might be useful. Id rather print to much information
+that not enough information that way I can pick out what i do and do not need. I also need to get songs, that will take a while
+for me to split those up. but shouldnt be to bad

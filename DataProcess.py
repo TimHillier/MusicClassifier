@@ -15,7 +15,7 @@ def find_songs(DataFolder):
     bar.finish
     #this is where you put loading bar
 
-
+#check to see if the output directory Exists
 def check_output(outputdirectory):
     try:
         os.mkdir(outputdirectory)
@@ -28,11 +28,24 @@ def check_output(outputdirectory):
 #generate Spectrogram for the current song
 def generate_spectrogram(song,outputdirectory):
     sound_info,frame_rate = get_wave_info(song)
+    title = outputdirectory+"/"+((song.split("/")[-1]).split(".")[0])
     pylab.figure(num=None, figsize=(19,12))
     pylab.subplot(111)
     pylab.title('spectrogram of %r'% song)
-    pylab.specgram(sound_info,Fs=frame_rate)
-    pylab.savefig(outputdirectory+"/"+((song.split("/")[-1]).split(".")[0])+".png")
+    data = pylab.specgram(sound_info,Fs=frame_rate)  #so this i need to output to file...
+    output_to_file(data,title)
+    pylab.savefig(title + ".png")
+
+#output data to file for data mining, not picture
+def output_to_file(data,file):
+    file = file.split("/")[-1]
+    check_output("./data")
+    print(file)
+    with open("./data/"+file+".txt",'w+') as f:
+        for item in data:
+            f.write("%s\n" % item)
+
+
 
 #gets info about the song
 def get_wave_info(song):
@@ -46,4 +59,4 @@ def get_wave_info(song):
 
 #if the song is not wav turn it into wav
 def file_to_wav(song):
-    print("file to wave")
+    print("file to wave",song)

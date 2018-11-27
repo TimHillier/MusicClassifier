@@ -2,6 +2,8 @@
 
 A music classifier in Python for CPSC 473
 
+#Start Information
+All songs needs to be in the .wav format
 
 
 

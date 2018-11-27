@@ -1,5 +1,5 @@
 numpy
 progress
 matplotlib
-
+pyfpgrowth
 
