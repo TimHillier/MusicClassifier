@@ -1,9 +1,13 @@
 #classifying
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn import svm
+
+clf = svm.SVC(gamma='scale')
+
+def support_vector_train(_X,_Y):
+    clf.fit(_X,_Y)
 
 
-def knn_classifier(X_train,y_train,X_test,y_test):
-    knn = KNeighborsClassifier()
-    knn.fit(X_train, y_train)
-    print('Accuracy of K-NN classifier on training set: {:.2f}'.format(knn.score(X_train, y_train)))
-    print('Accuracy of K-NN classifier on test set: {:.2f}'.format(knn.score(X_test, y_test)))
+def support_vector_classify(test_data,test_labels):
+    for i in range(0,len(test_data)):
+        print("should be ",test_labels[i],"is",clf.predict([test_data[i]]))
+

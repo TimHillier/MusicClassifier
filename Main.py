@@ -1,11 +1,14 @@
 import Classifier,Mine,DataProcess,sys,time
 #ok whats the first thing we need?
 def main():
-    # generate_data()
-    # mine_data()
-    print("trying",sys.argv[2])
-    DataProcess.read_file(sys.argv[2])
-
+    test_index = 123
+    data,labels =  DataProcess.read_file(sys.argv[2])
+    test_data = data[test_index]
+    test_label = labels[test_index]
+    del data[test_index]
+    del labels[test_index]
+    Classifier.support_vector_train(data,labels)
+    Classifier.support_vector_classify(test_data,test_label)
 
 
 #generates the data from all the wav files

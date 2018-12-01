@@ -72,15 +72,19 @@ def get_wave_info(song):
 #if this works i wont need anything above.
 #reads the .arff file
 def read_file(file_to_read):
+    _X = []
+    _Y = []
     #the file should be a .arff file
     if(not(file_to_read.endswith('.arff'))):
         print("File Should end with .arff")
         quit(0)
-    # file = arff.load(open(file_to_read),'rb')
-    f = StringIO(file_to_read)
-    data,meta = arff.loadarff(f)
-    # data = file["data"]
-    # out = file["attributes"][-1] #good
-    print(meta)
+    data, meta = arff.loadarff(file_to_read)
+    for i in range(0,len(data)):
+        data_list = data[i].tolist()
+        data_list = list(data_list)
+        label = data_list[-1].decode('utf-8')
+        del(data_list[-1])
+        _X.append(data_list)
+        _Y.append(label)
 
-
+    return _X,_Y
