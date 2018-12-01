@@ -1,7 +1,9 @@
 #process the data for classification
-import os,wave,sys,pylab,struct
+import os,wave,sys,pylab,struct,arff
 import numpy as np
 from progress.bar import Bar
+from scipy.io import arff
+from io import StringIO
 from matplotlib import mlab,pyplot
 
 #get songs from destination
@@ -67,7 +69,18 @@ def get_wave_info(song):
     return sound_info,frame_rate
 
 
-#if the song is not wav turn it into wav
-#this is just a bash script using ffmpeg
-def file_to_wav(song):
-    print("file to wave",song)
+#if this works i wont need anything above.
+#reads the .arff file
+def read_file(file_to_read):
+    #the file should be a .arff file
+    if(not(file_to_read.endswith('.arff'))):
+        print("File Should end with .arff")
+        quit(0)
+    # file = arff.load(open(file_to_read),'rb')
+    f = StringIO(file_to_read)
+    data,meta = arff.loadarff(f)
+    # data = file["data"]
+    # out = file["attributes"][-1] #good
+    print(meta)
+
+

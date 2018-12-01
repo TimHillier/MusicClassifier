@@ -1,9 +1,11 @@
 #the Mining Portion of this project
-import pyfpgrowth
+import pyfpgrowth,os
 
 
 
 
-
-def mine(file):
-    print("Mining File:",file)
+#Mine the data from the path
+def mine(path):
+    file_names = os.listdir(path)
+    file = open(path+"/"+file_names[0],"r")
+    print(file.readline())

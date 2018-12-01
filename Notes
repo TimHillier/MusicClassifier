@@ -14,3 +14,21 @@ write a script to extract all the needed information. Which I think I do. I have
 Text files filled with some information. Idk what that information is but it might be useful. Id rather print to much information
 that not enough information that way I can pick out what i do and do not need. I also need to get songs, that will take a while
 for me to split those up. but shouldnt be to bad
+
+
+
+
+Should I cut the samples down into 30 seconds, That would speed things up
+
+
+Marsyas is found in ~/Documents/marsyas
+sample : ./bin/sfplay my_sound_file.wav
+
+
+
+STEPS:
+1. Sort .mp3 into Genre folders
+2. Convert .mp3 into .wav and trim to 30 seconds
+3. get rid of .mp3s
+4. create .mf files for the genres
+5. Figure out how to parse .arff files
