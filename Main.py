@@ -1,12 +1,7 @@
 import Classifier,Mine,DataProcess,sys,time
 #ok whats the first thing we need?
 def main():
-    test_index = 123
-    data,labels =  DataProcess.read_file(sys.argv[2])
-    test_data = data[test_index]
-    test_label = labels[test_index]
-    del data[test_index]
-    del labels[test_index]
+    data,labels,test_data,test_label =  DataProcess.read_file(sys.argv[2])
     Classifier.support_vector_train(data,labels)
     Classifier.support_vector_classify(test_data,test_label)
 
