@@ -1,6 +1,5 @@
 #process the data for classification
-import os,wave,pylab,arff
-from progress.bar import Bar
+import arff
 from scipy.io import arff
 
 """
@@ -37,38 +36,4 @@ def read_file(file_to_read):
             counter += 1
     return _X, _Y, test_X, test_Y
 
-
-
-#get songs from destination
-def find_songs(DataFolder):
-    files = os.listdir(DataFolder)
-    bar = Bar('Generating Spectrograms',max = len(files))
-    for i in range(len(files)):
-        generate_spectrogram(DataFolder+"/"+files[i],"./data/Spect")
-        bar.next()
-    bar.finish
-    #this is where you put loading bar
-
-
-
-#generate Spectrogram for the current song
-def generate_spectrogram(song,outputdirectory):
-    sound_info,frame_rate = get_wave_info(song)
-    filename = ((song.split("/")[-1]).split(".")[0])
-    title = outputdirectory+"/"+ filename
-    pylab.figure(num=None, figsize=(19,12))
-    pylab.subplot(111)
-    pylab.title('spectrogram of %r'% song)
-    data = pylab.specgram(sound_info,Fs=frame_rate)  #so this i need to output to file...
-    pylab.savefig(title + ".png")
-
-
-#gets info about the song
-def get_wave_info(song):
-    wav = wave.open(song,"r")
-    frames = wav.readframes(-1)
-    sound_info = pylab.fromstring(frames,'Int16')
-    frame_rate = wav.getframerate()
-    wav.close()
-    return sound_info,frame_rate
 

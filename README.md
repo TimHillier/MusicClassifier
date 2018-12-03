@@ -2,7 +2,8 @@
 
 A music classifier in Python for CPSC 473.
 
-Written in Python 3.6
+Written in **Python 3.6**
+
 
 # Basic Information
 
@@ -31,12 +32,12 @@ decline in accuracy.
 
 # Install Requirements
 ```
-pip install -r requirements.txt 
+pip3 install -r requirements.txt 
 ```
 
 Run the code
 ```
-python Main.py <Path/To/.arff>
+python3 Main.py <Path/To/.arff>
 ```
 
 # Regarding the .arff file
