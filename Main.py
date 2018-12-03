@@ -1,4 +1,4 @@
-import Classifier,DataProcess,sys,time
+import Classifier,DataProcess,sys
 #ok whats the first thing we need?
 def main():
     data,labels,test_data,test_label =  DataProcess.read_file(sys.argv[1])

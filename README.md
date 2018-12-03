@@ -44,9 +44,6 @@ python Main.py <Path/To/.arff>
 To generate a .arff file I used [Marsyas](http://marsyas.info/) to get the Mel-frequency cepstral coeffcients in a .arff file, in a single
 vector.
 
-# Improvements
-
-
 # Trouble Shooting
 problem with tkinter not being installed? try
 ```
