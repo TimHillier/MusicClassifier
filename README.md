@@ -2,12 +2,31 @@
 
 A music classifier in Python for CPSC 473.
 
-#Start Information
+Written in Python 3.6
 
-I cut all songs down into 30 second .wav files.
-This can be accomplished with ffmpeg.
+#Basic Information
+
+I cut all songs down into 30 second .wav files using ffmpeg. I then used Marsyas to collect Mel-frequency cepstrual 
+coefficients, from the 30 second clips. MFCCs are coefficients that represent the short-term power spectrum of a sound. 
+Putting the MFCC vectors into a SVM I was able to classify different genres of music.  
  
-I've included test data so that you do not have to collect your own.
+I've included test data with a different number of genres so that you do not have to collect your own.
+
+#Results
+After running the classifier with different number of genres we can see that after 4-5 genres the classifier starts to
+decline in accuracy.
+
+| Number of Genres 	| % Correct 	| % Wrong 	|
+|:----------------:	|:---------:	|:-------:	|
+|         2        	|   92.5%   	|   7.5%  	|
+|         3        	|    68%    	|   32%   	|
+|         4        	|    60%    	|   40%   	|
+|         5        	|    62%    	|   38%   	|
+|         7        	|    46%    	|   53%   	|
+|        10        	|    43%    	|   56%   	|
+
+
+
 
 
 #Install Requirements
@@ -17,15 +36,15 @@ pip install -r requirements.txt
 
 Run the code
 ```
-python Main.py <Path/To/.wavs> <Path/To/.arff>
+python Main.py <Path/To/.arff>
 ```
 
 #Regarding the .arff file
 
-To generate a .arff file I used "Marsyas" to get the Mel-frequency cepstral coeffcients in a .arff file.
+To generate a .arff file I used [Marsyas](http://marsyas.info/) to get the Mel-frequency cepstral coeffcients in a .arff file, in a single
+vector.
 
 #Improvements
-1. Better Output. Make the output more clear and more informative. Maybe what the incorrect songs are classified as. 
 
 
 # Trouble Shooting

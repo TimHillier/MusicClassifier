@@ -67,8 +67,12 @@ def get_wave_info(song):
     wav.close()
     return sound_info,frame_rate
 
-
-#reads the .arff file
+"""
+Preprocess the data
+reads the .arff file and sends it to the SVM
+Uses 80% to train the classifier and 
+Uses 20% to test the classifier
+"""
 def read_file(file_to_read):
     _X = []
     _Y = []
@@ -95,4 +99,4 @@ def read_file(file_to_read):
             _X.append(data_list)
             _Y.append(label)
             counter += 1
-    return _X,_Y,test_X,test_Y
+    return _X, _Y, test_X, test_Y
