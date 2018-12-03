@@ -4,7 +4,7 @@ A music classifier in Python for CPSC 473.
 
 Written in Python 3.6
 
-#Basic Information
+# Basic Information
 
 I cut all songs down into 30 second .wav files using ffmpeg. I then used Marsyas to collect Mel-frequency cepstrual 
 coefficients, from the 30 second clips. MFCCs are coefficients that represent the short-term power spectrum of a sound. 
@@ -12,7 +12,7 @@ Putting the MFCC vectors into a SVM I was able to classify different genres of m
  
 I've included test data with a different number of genres so that you do not have to collect your own.
 
-#Results
+# Results
 After running the classifier with different number of genres we can see that after 4-5 genres the classifier starts to
 decline in accuracy.
 
@@ -29,7 +29,7 @@ decline in accuracy.
 
 
 
-#Install Requirements
+# Install Requirements
 ```
 pip install -r requirements.txt 
 ```
@@ -39,12 +39,12 @@ Run the code
 python Main.py <Path/To/.arff>
 ```
 
-#Regarding the .arff file
+# Regarding the .arff file
 
 To generate a .arff file I used [Marsyas](http://marsyas.info/) to get the Mel-frequency cepstral coeffcients in a .arff file, in a single
 vector.
 
-#Improvements
+# Improvements
 
 
 # Trouble Shooting
@@ -59,7 +59,7 @@ ffmpeg -ss 00:00:30 -t 00:00:30 -i  <song.mp3> <song.wav>
 ```
 
 
-#References
+# References
 [1] R. Griesmeyer, "Music Recommendation and Classification Utilizing Machine Learning and Clustering Methods." (2011).
 Florida State University.
 
