@@ -3,7 +3,7 @@
 A music classifier in Python for CPSC 473.
 
 Written in **Python 3.6**
-
+Tim Hillier
 
 # Basic Information
 
