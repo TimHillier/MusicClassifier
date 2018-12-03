@@ -8,4 +8,3 @@ import pyfpgrowth,os
 def mine(path):
     file_names = os.listdir(path)
     file = open(path+"/"+file_names[0],"r")
-    print(file.readline())
